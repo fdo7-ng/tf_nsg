@@ -1,0 +1,248 @@
+[
+  {
+    "Name": "AllowFTP",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "TCP",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "21"
+    ],
+    "SourceAddressPrefix": [
+      "10.164.129.100",
+      "10.164.129.101",
+      "10.164.129.102",
+      "10.164.129.103",
+      "12.197.215.0/27",
+      "96.77.155.0/29"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 1900,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowRDP",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "TCP",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "3389"
+    ],
+    "SourceAddressPrefix": [
+      "10.164.10.0/24",
+      "10.164.74.0/24",
+      "10.144.128.0/20"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2000,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowSMB",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "TCP",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "445"
+    ],
+    "SourceAddressPrefix": [
+      "10.164.10.0/24",
+      "10.164.74.0/24",
+      "10.144.128.0/20",
+      "10.164.0.100",
+      "10.164.0.102"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2100,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowInternalAccess",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "*"
+    ],
+    "SourceAddressPrefix": [
+      "10.144.128.0/20",
+      "10.144.112.0/20",
+      "10.170.208.0/20",
+      "10.170.192.0/20"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2200,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowAzureCloud",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "*"
+    ],
+    "SourceAddressPrefix": [
+      "AzureCloud"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2300,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "DenyRDPandSMB",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "TCP",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "445",
+      "3389"
+    ],
+    "SourceAddressPrefix": [
+      "*"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Deny",
+    "Priority": 2400,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowVirtualNetwork",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "*"
+    ],
+    "SourceAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2500,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowLoadBalancer",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "*"
+    ],
+    "SourceAddressPrefix": [
+      "AzureLoadBalancer"
+    ],
+    "DestinationAddressPrefix": [
+      "*"
+    ],
+    "Access": "Allow",
+    "Priority": 2600,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "AllowPublicAccessHttp",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "80",
+      "443"
+    ],
+    "SourceAddressPrefix": [
+      "Internet"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Allow",
+    "Priority": 2650,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  },
+  {
+    "Name": "DenyPublicAccess",
+    "Etag": "W/\"0e2362fc-29ef-4241-8c20-324f2ed32b44\"",
+    "Protocol": "*",
+    "SourcePortRange": [
+      "*"
+    ],
+    "DestinationPortRange": [
+      "*"
+    ],
+    "SourceAddressPrefix": [
+      "Internet"
+    ],
+    "DestinationAddressPrefix": [
+      "VirtualNetwork"
+    ],
+    "Access": "Deny",
+    "Priority": 2700,
+    "Direction": "Inbound",
+    "ProvisioningState": "Succeeded",
+    "SourceApplicationSecurityGroups": [],
+    "DestinationApplicationSecurityGroups": []
+  }
+]
